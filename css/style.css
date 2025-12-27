@@ -1,0 +1,117 @@
+/* Basic CSS resets -- leveling slight inconsistencies in browsers */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4em;
+}
+
+#container {
+  position: relative;
+  z-index: 2000; /* Ensure it's above all waves */
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+header h1, header h2 {
+  color: white;
+  margin: 20px 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #6F7D8C; 
+  font-size: 1em;
+  font-weight: 600;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #D6C4A5;
+  overflow: hidden;
+}
+
+section .wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url('../img/wave.png');
+  background-size: 1000px 100px;
+  pointer-events: none; /* Waves won't interfere */
+}
+
+section .wave1 {
+  z-index: 1000;
+  animation: animate 30s linear infinite;
+}
+
+section .wave2 {
+  z-index: 999;
+  animation: animate2 15s linear infinite;
+  opacity: 0.5;
+  bottom: 10px;
+}
+
+section .wave3 {
+  z-index: 998;
+  animation: animate 30s linear infinite;
+  opacity: 0.2;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+
+section .wave4 {
+  z-index: 997;
+  animation: animate2 15s linear infinite;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+
+@keyframes animate {
+  0% {
+      background-position: 0;
+  }
+  100% {
+      background-position: 1000px;
+  }
+}
+
+@keyframes animate2 {
+  0% {
+      background-position: 0;
+  }
+  100% {
+      background-position: -1000px;
+  }
+}
